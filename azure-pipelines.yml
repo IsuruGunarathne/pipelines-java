@@ -28,3 +28,6 @@ steps:
     # Use JFrog CLI and Maven extractor locally without uploading to Artifactory
     ./jfrog
   displayName: 'Download JFrog CLI and Maven extractor and use locally'
+- script: |
+    ls
+  displayName: 'checking dir'
