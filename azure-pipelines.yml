@@ -20,3 +20,16 @@ steps:
     publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     goals: 'package'
+
+- script: |
+    wget -O jfrog https://releases.jfrog.io/artifactory/jfrog-cli/v2-jf/linux-amd64/jfrog
+    chmod +x jfrog
+    wget -O jfrog-mvn https://releases.jfrog.io/artifactory/oss-release-local/com/jfrog/artifactory/maven3extractor/maven3extractor/1.43.2/maven3extractor-1.43.2-linux-amd64.tar.gz
+    tar -xvf jfrog-mvn
+    mv maven3extractor-1.43.2-linux-amd64/maven3extractor .
+    export PATH=$PATH:$(pwd)
+    ./jfrog rt config --url=YOUR_ARTIFACTORY_URL --user=YOUR_USERNAME --password=YOUR_PASSWORD --interactive=false
+    # Use JFrog CLI and Maven extractor locally without uploading to Artifactory
+    ./jfrog
+    ./maven3extractor
+  displayName: 'Download JFrog CLI and Maven extractor and use locally'
