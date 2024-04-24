@@ -23,8 +23,8 @@ steps:
 
 - script: |
     wget -O jfrog https://releases.jfrog.io/artifactory/jfrog-cli/v2-jf/2.56.0/jfrog-cli-linux-amd64/jf
-    chmod +x jf
+    chmod +x jfrog
     export PATH=$PATH:$(pwd)
     # Use JFrog CLI and Maven extractor locally without uploading to Artifactory
-    ./jf
+    ./jfrog
   displayName: 'Download JFrog CLI and Maven extractor and use locally'
