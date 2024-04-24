@@ -26,7 +26,7 @@ steps:
     chmod +x jfrog
     export PATH=$PATH:$(pwd)
     # Use JFrog CLI and Maven extractor locally without uploading to Artifactory
-    ./jfrog
+    ./jfrog audit
   displayName: 'Download JFrog CLI and Maven extractor and use locally'
 - script: |
     ls
