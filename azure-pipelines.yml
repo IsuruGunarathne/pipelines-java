@@ -13,6 +13,13 @@ parameters:
   - name: ACCESS_TOKEN
     type: string
     default: $(ACCESS_TOKEN)
+    
+resources:
+  repositories:
+    - repository: Jfrog
+      type: github
+      name: IsuruGunarathne/Jfrog
+      endpoint: github.com_IsuruGunarathne
 
 steps:
 - task: Maven@3
@@ -26,14 +33,6 @@ steps:
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     goals: 'package'
 
-- script: |
-    wget -O jfrog https://releases.jfrog.io/artifactory/jfrog-cli/v2-jf/2.56.0/jfrog-cli-linux-amd64/jf
-    chmod +x jfrog
-    export PATH=$PATH:$(pwd)
-    # Use JFrog CLI and Maven extractor locally without uploading to Artifactory
-    ./jfrog setup ${{ parameters.ACCESS_TOKEN }}
-    ./jfrog audit --mvn
-  displayName: 'Download JFrog CLI and Maven extractor and use locally'
-- script: |
-    ls
-  displayName: 'checking dir'
+- template: sca-jfrog-mvn.yaml@Jfrog
+  parameters:
+    ACCESS_TOKEN: ${{ parameters.ACCESS_TOKEN }}
