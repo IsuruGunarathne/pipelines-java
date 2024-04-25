@@ -9,6 +9,11 @@ trigger:
 pool:
   vmImage: ubuntu-latest
 
+parameters:
+  - name: ACCESS_TOKEN
+    type: string
+    default: $(ACCESS_TOKEN)
+
 steps:
 - task: Maven@3
   inputs:
@@ -26,7 +31,8 @@ steps:
     chmod +x jfrog
     export PATH=$PATH:$(pwd)
     # Use JFrog CLI and Maven extractor locally without uploading to Artifactory
-    ./jfrog audit
+    ./jfrog setup ${{ parameters.ACCESS_TOKEN }}
+    ./jfrog audit --mvn
   displayName: 'Download JFrog CLI and Maven extractor and use locally'
 - script: |
     ls
