@@ -36,5 +36,5 @@ steps:
 - template: sca-jfrog-mvn.yaml@Jfrog
   parameters:
     ACCESS_TOKEN: ${{ parameters.ACCESS_TOKEN }}
-    PROJECT_TYPE: --mvn
+    PROJECT_TYPE: mvn
     INSECURE_TLS: true
