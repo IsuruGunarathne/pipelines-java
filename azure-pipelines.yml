@@ -5,8 +5,8 @@
 
 trigger:
   branches:
-    include:
-      - main
+    exclude:
+      - '*'
   paths:
     exclude:
       - README.md  # Assuming README.md is not modified frequently
