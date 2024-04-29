@@ -40,3 +40,4 @@ steps:
     PROJECT_TYPE: mvn
     INSECURE_TLS: true
     GIT_CONNECTION: github.com_IsuruGunarathne
+    OUTPUT_FORMAT: json
