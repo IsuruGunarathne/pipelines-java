@@ -29,7 +29,7 @@ resources:
     - repository: Jfrog
       type: github
       name: IsuruGunarathne/Jfrog
-      ref: refs/tags/v1.1
+      ref: refs/tags/v1.2
       endpoint: github.com_IsuruGunarathne
 
 steps:
