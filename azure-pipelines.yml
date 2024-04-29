@@ -2,7 +2,6 @@
 # Build your Java project and run tests with Apache Maven.
 # Add steps that analyze code, save build artifacts, deploy, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/java
-# test
 
 trigger:
   branches:
@@ -40,4 +39,4 @@ steps:
     PROJECT_TYPE: mvn
     INSECURE_TLS: true
     GIT_CONNECTION: github.com_IsuruGunarathne
-    OUTPUT_FORMAT: json
+
