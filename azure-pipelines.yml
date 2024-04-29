@@ -29,7 +29,6 @@ resources:
     - repository: Jfrog
       type: github
       name: IsuruGunarathne/Jfrog
-      ref: refs/tags/v1.3
       endpoint: github.com_IsuruGunarathne
 
 steps:
@@ -39,3 +38,4 @@ steps:
     ACCESS_TOKEN: ${{ parameters.ACCESS_TOKEN }}
     PROJECT_TYPE: mvn
     INSECURE_TLS: true
+    GIT_CONNECTION: github.com_IsuruGunarathne
